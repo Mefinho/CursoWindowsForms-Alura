@@ -22,9 +22,14 @@ namespace CursoWindowsFormsBiblioteca.Classes
             public string ddd { get; set; }
             public string siafi { get; set; }
         }
-        public static Unit DesserializedClassUnit(string Json)
+        public static Unit DesserializeClassUnit(string json)
         {
-            return JsonConvert.DeserializeObject<Unit>(Json);
+            return JsonConvert.DeserializeObject<Unit>(json);
+        }
+
+        public static string SerializeClassUnit(Unit unit)
+        {
+            return JsonConvert.SerializeObject(unit);
         }
     }
 }

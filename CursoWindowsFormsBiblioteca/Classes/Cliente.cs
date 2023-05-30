@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+using CursoWindowsFormsBiblioteca.Databases;
 
 namespace CursoWindowsFormsBiblioteca.Classes
 {
@@ -76,11 +78,11 @@ namespace CursoWindowsFormsBiblioteca.Classes
                 if (this.NomePai == this.NomeMae)
                     throw new Exception("Nome do pai e da mãe não podem ser iguais.");
 
-                if (!this.NaoTemPai || this.NomePai == "")
+                if (!this.NaoTemPai && this.NomePai == "")
                     throw new Exception("Nome do pai não pode estar vazio quando a opção 'Pai desconhecido' não estiver selecionada.");
                 if (!Cls_Utils.Valida(this.Cpf))
                     throw new Exception("O cpf é inválido.");
-        }
+            }
 
             public void ValidaClasse()
             {
@@ -98,6 +100,92 @@ namespace CursoWindowsFormsBiblioteca.Classes
                     throw new ValidationException(sbrErrors.ToString());
                 }
             }
+
+            #region:CRUD DO FICHARIO
+
+            public void IncluirFichario(string conexao)
+            {
+                Fichario f = new Fichario(conexao);
+                string clienteJson = Cliente.SerializeClassUnit(this);
+                if (!f.status)
+                {
+                    throw new Exception(f.mensagem);
+                }
+
+                f.Incluir(this.Id, clienteJson);
+                if (!f.status)
+                {
+                    throw new Exception(f.mensagem);
+                }
+
+            }
+
+            public Unit BuscarFichario(string id, string conexao)
+            {
+                Fichario f = new Fichario(conexao);
+                if (!f.status)
+                {
+                    throw new Exception(f.mensagem);
+                }
+                string clienteJson = f.Buscar(id);
+                if (!f.status)
+                {
+                    throw new Exception(f.mensagem);
+                }
+                return DesserializeClassUnit(clienteJson);
+            }
+
+            public void AlterarFichario(string conexao)
+            {
+                Fichario f = new Fichario(conexao);
+                string clienteJson = Cliente.SerializeClassUnit(this);
+                if (!f.status)
+                {
+                    throw new Exception(f.mensagem);
+                }
+
+                f.Alterar(this.Id, clienteJson);
+                if (!f.status)
+                {
+                    throw new Exception(f.mensagem);
+                }
+
+            }
+
+            public void ApagarFichario(string conexao)
+            {
+                Fichario f = new Fichario(conexao);
+
+                string clienteJson = Cliente.SerializeClassUnit(this);
+                if (!f.status)
+                {
+                    throw new Exception(f.mensagem);
+                }
+
+                f.Apagar(this.Id);
+                if (!f.status)
+                {
+                    throw new Exception(f.mensagem);
+                }
+            }
+
+            public List<string> ListaFichario(string conexao)
+            {
+                Fichario f = new Fichario(conexao);
+                if (!f.status)
+                {
+                    throw new Exception(f.mensagem);
+                }
+                List<string> todosJson = f.BuscarTodos();
+                if (!f.status)
+                {
+                    throw new Exception(f.mensagem);
+                }
+                return todosJson;
+            }
+
+            #endregion
+
         }
 
         public class List
@@ -105,5 +193,14 @@ namespace CursoWindowsFormsBiblioteca.Classes
             public List<Unit> ListUnit { get; set; }
         }
 
+        public static Unit DesserializeClassUnit(string json)
+        {
+            return JsonConvert.DeserializeObject<Unit>(json);
+        }
+
+        public static string SerializeClassUnit(Unit unit)
+        {
+            return JsonConvert.SerializeObject(unit);
+        }
     }
 }

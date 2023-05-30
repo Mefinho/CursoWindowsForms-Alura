@@ -154,6 +154,12 @@
     <Compile Include="Formulários - Curso 3\Frm_CadastroCliente_UC.Designer.cs">
       <DependentUpon>Frm_CadastroCliente_UC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Busca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Busca.Designer.cs">
+      <DependentUpon>Frm_Busca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulários - Curso 3\Frm_CadastroCliente_UC.resx">
       <DependentUpon>Frm_CadastroCliente_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Busca.resx">
+      <DependentUpon>Frm_Busca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Principal.resx">
       <DependentUpon>Frm_Principal.cs</DependentUpon>

@@ -72,7 +72,8 @@
             this.abrirToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.salvarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ApagatoolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.LimpatoolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.Btn_Busca = new System.Windows.Forms.Button();
             this.Grp_Codigo.SuspendLayout();
             this.Grp_Endereco.SuspendLayout();
             this.Grp_DadosPessoais.SuspendLayout();
@@ -287,10 +288,11 @@
             // 
             // Grp_Codigo
             // 
+            this.Grp_Codigo.Controls.Add(this.Btn_Busca);
             this.Grp_Codigo.Controls.Add(this.Txt_Codigo);
             this.Grp_Codigo.Location = new System.Drawing.Point(12, 45);
             this.Grp_Codigo.Name = "Grp_Codigo";
-            this.Grp_Codigo.Size = new System.Drawing.Size(227, 53);
+            this.Grp_Codigo.Size = new System.Drawing.Size(308, 53);
             this.Grp_Codigo.TabIndex = 39;
             this.Grp_Codigo.TabStop = false;
             this.Grp_Codigo.Text = "groupBox1";
@@ -472,7 +474,7 @@
             this.abrirToolStripButton,
             this.salvarToolStripButton,
             this.ApagatoolStripButton1,
-            this.toolStripButton1});
+            this.LimpatoolStripButton1});
             this.Tls_Principal.Location = new System.Drawing.Point(0, 0);
             this.Tls_Principal.Name = "Tls_Principal";
             this.Tls_Principal.Size = new System.Drawing.Size(806, 25);
@@ -519,15 +521,25 @@
             this.ApagatoolStripButton1.Text = "toolStripButton1";
             this.ApagatoolStripButton1.Click += new System.EventHandler(this.ApagatoolStripButton1_Click);
             // 
-            // toolStripButton1
+            // LimpatoolStripButton1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::CursoWindowsForms0.Properties.Resources.LimparBarra;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "LimpartoolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.LimpatoolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.LimpatoolStripButton1.Image = global::CursoWindowsForms0.Properties.Resources.LimparBarra;
+            this.LimpatoolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.LimpatoolStripButton1.Name = "LimpatoolStripButton1";
+            this.LimpatoolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.LimpatoolStripButton1.Text = "LimpartoolStripButton1";
+            this.LimpatoolStripButton1.Click += new System.EventHandler(this.LimpatoolStripButton1_Click);
+            // 
+            // Btn_Busca
+            // 
+            this.Btn_Busca.Location = new System.Drawing.Point(221, 18);
+            this.Btn_Busca.Name = "Btn_Busca";
+            this.Btn_Busca.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Busca.TabIndex = 2;
+            this.Btn_Busca.Text = "button1";
+            this.Btn_Busca.UseVisualStyleBackColor = true;
+            this.Btn_Busca.Click += new System.EventHandler(this.Btn_Busca_Click);
             // 
             // Frm_CadastroCliente_UC
             // 
@@ -539,7 +551,7 @@
             this.Controls.Add(this.Grp_Endereco);
             this.Controls.Add(this.Grp_Codigo);
             this.Name = "Frm_CadastroCliente_UC";
-            this.Size = new System.Drawing.Size(806, 627);
+            this.Size = new System.Drawing.Size(806, 576);
             this.Load += new System.EventHandler(this.Frm_CadastroCliente_UC_Load);
             this.Grp_Codigo.ResumeLayout(false);
             this.Grp_Codigo.PerformLayout();
@@ -605,6 +617,7 @@
         private System.Windows.Forms.ToolStripButton abrirToolStripButton;
         private System.Windows.Forms.ToolStripButton salvarToolStripButton;
         private System.Windows.Forms.ToolStripButton ApagatoolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton LimpatoolStripButton1;
+        private System.Windows.Forms.Button Btn_Busca;
     }
 }
