@@ -57,6 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FicharioDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FicharioDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Formulários - Curso 1\Frm_Demonstracao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +300,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="FicharioDataSet.xsc">
+      <DependentUpon>FicharioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FicharioDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FicharioDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FicharioDataSet.xss">
+      <DependentUpon>FicharioDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

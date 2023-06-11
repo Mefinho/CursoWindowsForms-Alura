@@ -107,7 +107,7 @@ namespace CursoWindowsForms0
                 c = LeituraFormulario();
                 c.ValidaClasse();
                 c.ValidaComplemento();
-                c.IncluirFichario("C:\\Teste\\Ficharios");
+                c.IncluirFicharioDB("Cliente");
                 MessageBox.Show("Cliente Registrado com sucesso.", "Bytebank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException ex)
@@ -130,7 +130,7 @@ namespace CursoWindowsForms0
             try
             {
                 Cliente.Unit c = new Cliente.Unit();
-                c = c.BuscarFichario(Txt_Codigo.Text, "C:\\Teste\\Ficharios");
+                c = c.BuscarFicharioDB(Txt_Codigo.Text, "Cliente");
                 if (c == null)
                 {
                     MessageBox.Show("Cliente não existente no banco de dados.", "Bytebank", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -157,7 +157,7 @@ namespace CursoWindowsForms0
                 c = LeituraFormulario();
                 c.ValidaClasse();
                 c.ValidaComplemento();
-                c.AlterarFichario("C:\\Teste\\Ficharios");
+                c.AlterarFicharioDB("Cliente");
                 MessageBox.Show("Cliente alterado com sucesso.", "Bytebank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException ex)
@@ -185,12 +185,12 @@ namespace CursoWindowsForms0
                     MessageBox.Show("Cliente não existente no banco de dados.", "Bytebank", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                c = c.BuscarFichario(Txt_Codigo.Text, "C:\\Teste\\Ficharios");
+                c = c.BuscarFicharioDB(Txt_Codigo.Text, "Cliente");
                 EscreveFormulario(c);
                 Frm_Questao Db = new Frm_Questao("Frm_Questao", "Tem certeza que quer excluir esse cliente?");
                 Db.ShowDialog();
                 if (!(Db.DialogResult == DialogResult.Yes)) return;
-                c.ApagarFichario("C:\\Teste\\Ficharios");
+                c.ApagarFicharioDB("Cliente");
                 LimpaFormulario();
                 MessageBox.Show("Cliente deletado com sucesso.", "Bytebank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -341,7 +341,7 @@ namespace CursoWindowsForms0
         private void Btn_Busca_Click(object sender, EventArgs e)
         {
             Cliente.Unit c = new Cliente.Unit();
-            List<string> list = c.ListaFichario("C:\\Teste\\Ficharios");
+            List<string> list = c.ListaFicharioDB("Cliente");
 
             if (list == null)
             {
@@ -365,7 +365,7 @@ namespace CursoWindowsForms0
                     return;
                 }
                 var idSelected = fFrm.IdSelected;
-                c = c.BuscarFichario(idSelected, "C:\\Teste\\Ficharios\\");
+                c = c.BuscarFicharioDB(idSelected, "Cliente");
                 if (c == null)
                 {
                     MessageBox.Show("ERR: " + "Identificador não encontrado.", "Bytebank", MessageBoxButtons.OK, MessageBoxIcon.Error);
