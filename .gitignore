@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Fichario/000001.json
+/Fichario/000002.json
+/Fichario/000003.json
+/Fichario/123456.json
+/Fichario/123458.json
